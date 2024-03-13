@@ -15,7 +15,9 @@ async def start(_, msg):
     reply_markup = InlineKeyboardMarkup(buttons)
     await msg.reply_photo(
         photo=random.choice(PIC),
-        caption="""𝙷𝙴𝙻𝙾 {},\n𝙼𝚈 𝙽𝙰𝙼𝙴 𝙸𝚂 <a href='https://t.me/lucy666xbot'>➳❥ɪᴹ᭄𝑳𝒖𝒄𝒚 𝒙 𝒃𝒐𝒕 🫧</a>, 𝙸 𝙲𝙰𝙽 𝙿𝚁𝙾𝚅𝙸𝙳𝙴 𝙼𝙾𝚅𝙸𝙴𝚂, 𝙹𝚄𝚂𝚃 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 𝙰𝙽𝙳 𝙴𝙽𝙹𝙾𝚈 😍""".format(msg.from_user.mention),
+        caption="""𝙷𝙴𝙻𝙾 {},\n👋 Welcome to <a href='https://t.me/lucy666xbot'>➳❥ɪᴹ᭄𝑳𝒖𝒄𝒚 𝒙 𝒃𝒐𝒕 🫧</a>,\n\n
+        I am here to assist you with various tasks.\n
+        Feel free to explore the available commands and features.\n\n""".format(msg.from_user.mention),
         reply_markup=reply_markup
     )
 
