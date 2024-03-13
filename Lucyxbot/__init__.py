@@ -5,10 +5,6 @@ from config import API_ID, API_HASH, BOT_TOKEN
 loop = asyncio.get_event_loop()
 
 
-logging.basicConfig(
-    format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s",
-    level=logging.INFO,
-)
 
 app = Client(
     "Lucyxbot",
