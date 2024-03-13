@@ -9,5 +9,3 @@ app = Client(
     bot_token=BOT_TOKEN
 )
 
-print("🐾 I'm Alive Now 😀 🐾")
-app.run()
