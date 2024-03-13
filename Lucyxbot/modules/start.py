@@ -12,7 +12,7 @@ async def start(_, msg):
             InlineKeyboardButton('🥀 Sᴜᴘᴘᴏʀᴛ 🥀', url='https://t.me/vkmovies02'),
             InlineKeyboardButton('🥀 Uᴘᴅᴀᴛᴇs 🥀', url='https://t.me/vkmovies2')
     ],[
-            InlineKeyboardButton('✨ COMMANDS ✨', url=f'https://t.me/{BOT_USERNAME}?start=true')
+            InlineKeyboardButton('✨ COMMANDS ✨', callback_data="githelp")
     ],[
             InlineKeyboardButton('✨ Sᴏᴜʀᴄᴇ ✨', url=f'https://t.me/{BOT_USERNAME}?start=true')
     ]]
@@ -23,4 +23,33 @@ async def start(_, msg):
         reply_markup=reply_markup
     )
 
+@app.on_callback_query()
+def callback_query_handler(client, query):
+    if query.data == 'githelp':
+        ghelp_text = (
+            "๏ ɢɪᴛʜᴜʙ & ʜᴇʀᴏᴋᴜ ᴄᴏɴᴛʀᴏʟ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs ๏\n"
+            "➪/start - sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ \n"
+            "➪/help -  Dɪsᴘʟᴀʏ ᴛʜɪs ʜᴇʟᴘ ᴍᴇssᴀɢᴇ\n"
+            "➪/allrepo - Lɪsᴛ ʏᴏᴜʀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀɪᴇs ᴜsᴇ /allrepo daxxteam\n\n"
+            "➪/create_repo - Cʀᴇᴀᴛᴇ ᴀ ɴᴇᴡ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/delrepo - Dᴇʟᴇᴛᴇ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/add_collaborator - Aᴅᴅ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ᴛᴏ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ\n"
+            "➪/remove_collaborator - Rᴇᴍᴏᴠᴇ ᴀ ᴄᴏʟʟᴀʙᴏʀᴀᴛᴏʀ ғʀᴏᴍ ᴀ GɪᴛHᴜʙ ʀᴇᴘᴏsɪᴛᴏʀʏ "
+        )
 
+        
+        buttons = [
+            [
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
+            ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+
+        
+        query.message.edit_text(ghelp_text, reply_markup=reply_markup)
+
+# Additional callback for closing the message
+@app.on_callback_query(filters.regex("^close_data"))
+async def close_callback(_, query):
+    chat_id = query.message.chat.id
+    await query.message.delete()
