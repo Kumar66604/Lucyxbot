@@ -41,10 +41,13 @@ def callback_query_handler(client, query):
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
         
 
-async def callback_query_handler(client, query):
-    if query.data == "close":
-        await query.message.delete()
-        try:
-            await query.message.reply_to_message.delete()
-        except:
-            pass
+# Define the callback query handler for button clicks
+@app.on_callback_query()
+def button_click(client, callback_query):
+    # Get the callback data to determine which button was clicked
+    callback_data = callback_query.data
+
+    # Handle close button
+    if callback_data == "close":
+        # Delete the message with the close button
+        client.delete_messages(chat_id=callback_query.msg.chat.id, message_ids=callback_query.msg.message_id)
