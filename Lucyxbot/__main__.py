@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from config import *
+from config import API_ID, API_HASH, BOT_TOKEN
 
 app = Client(
     "Lucyxbot",
