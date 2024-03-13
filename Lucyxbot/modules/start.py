@@ -4,7 +4,8 @@ from Lucyxbot import app
 from config import PIC
 
 @app.on_message(filters.command("start"))
-buttons = [[
+if len(message.command) != 2
+    buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('🔍 support', url='https://t.me/vkmovies02'),
