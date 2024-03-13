@@ -13,6 +13,8 @@ async def start(_, msg):
             InlineKeyboardButton('🥀 Uᴘᴅᴀᴛᴇs 🥀', url='https://t.me/vkmovies2')
     ],[
             InlineKeyboardButton('✨ COMMANDS ✨', url=f'https://t.me/{BOT_USERNAME}?start=true')
+    ],[
+            InlineKeyboardButton('✨ Sᴏᴜʀᴄᴇ ✨', url=f'https://t.me/{BOT_USERNAME}?start=true')
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     await msg.reply_photo(
