@@ -23,6 +23,10 @@
       "description": "Your image link for the /start command",
       "required": true
     }
+    "BOT_USERNAME": {
+      "description": "Your Bot usernames without @",
+      "required": true
+    }
   },
   "buildpacks": [
     {
