@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from Lucyxbot import app
 
-@app.on_message(filters.command("st"))
+@app.on_message(filters.command("start"))
 buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
