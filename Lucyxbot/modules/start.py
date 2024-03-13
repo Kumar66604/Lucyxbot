@@ -32,7 +32,7 @@ def callback_query_handler(client, query):
         
         buttons = [
             [
-                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")
             ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -41,8 +41,10 @@ def callback_query_handler(client, query):
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
         
 
-# Additional callback for closing the message
-@app.on_callback_query(filters.regex("^close_data"))
-async def close_callback(_, query):
-    chat_id = query.message.chat.id
-    await query.message.delete()
+def callback_query_handler(client, query):
+    if query.data == "close":
+        await query.message.delete()
+        try:
+            await query.message.reply_to_message.delete()
+        except:
+            pass
