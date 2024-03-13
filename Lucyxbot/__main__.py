@@ -9,3 +9,4 @@ app = Client(
 )
 
 print("🐾 I'm Alive Now 😀 🐾")
+app.run()
