@@ -1,8 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from config import *
-from Lucyxbot.main import app
+from Lucyxbot import app
 
-@app.on_message(filters.command("start"))
+@app.on_message(filters.command("st"))
 async def start(_, message):
     await message.reply_text("Hello! I am your bot. How can I help you?")
