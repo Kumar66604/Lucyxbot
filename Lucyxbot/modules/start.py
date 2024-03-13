@@ -6,8 +6,8 @@ from Lucyxbot import app
 buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
+            InlineKeyboardButton('🔍 support', url='https://t.me/vkmovies02'),
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/vkmovies2')
 ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
