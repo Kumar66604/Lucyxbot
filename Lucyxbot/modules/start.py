@@ -41,7 +41,7 @@ def callback_query_handler(client, query):
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
         
 
-def callback_query_handler(client, query):
+async def callback_query_handler(client, query):
     if query.data == "close":
         await query.message.delete()
         try:
