@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from Lucyxbot import app
+from config import PIC
 
 @app.on_message(filters.command("start"))
 buttons = [[
