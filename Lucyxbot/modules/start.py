@@ -1,7 +1,9 @@
+import random
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from Lucyxbot import app
 from config import PIC, BOT_USERNAME
+
 
 @app.on_message(filters.command("start"))
 async def start(_, msg):
