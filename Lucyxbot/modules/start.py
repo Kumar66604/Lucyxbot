@@ -14,7 +14,7 @@ async def start(_, msg):
     ],[
             InlineKeyboardButton('✨ Cᴏᴍᴍᴀɴᴅs ✨', callback_data="commands")
     ],[
-            InlineKeyboardButton('✨ Sᴏᴜʀᴄᴇ ✨', callback_data="about")
+            InlineKeyboardButton('✨ Sᴏᴜʀᴄᴇ ✨', callback_data="source")
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     await msg.reply_photo(
@@ -30,11 +30,20 @@ async def callback_query_handler(client, query):
              " <b>Pᴏᴡᴇʀs Oғ </b><a href='https://t.me/lucy666xbot'>➳❥ɪᴹ᭄𝑳𝒖𝒄𝒚 𝒙 𝒃𝒐𝒕 🫧</a> "
         )
         buttons = [[
-            InlineKeyboardButton("⟲ ʙᴀᴄᴋ ⟳", callback_data="home_"),
+            InlineKeyboardButton("⟲ ʙᴀᴄᴋ ⟳", callback_data="home"),
             InlineKeyboardButton("⟳ ᴄʟᴏsᴇ ⟳", callback_data="close")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(ghelp_text, reply_markup=reply_markup)
+    elif query.data == "source":
+        await callback_query.edit_message_media(
+        media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="home")]
+            ]
+        ),
+        )
     elif query.data == "close":
         await query.message.delete()
         try:
