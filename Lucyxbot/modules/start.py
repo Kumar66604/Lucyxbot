@@ -25,7 +25,7 @@ async def start(_, msg):
         reply_markup=reply_markup
     )
 
-@app.on_message(filters.command("start") & filters.incomming)
+@app.on_message(filters.command("start") & filters.incoming)
 async def start(_, msg):
     buttons = [[
         InlineKeyboardButton('🥀 Sᴜᴘᴘᴏʀᴛ 🥀', url='https://t.me/{SUPPORT_GROUP}'),
