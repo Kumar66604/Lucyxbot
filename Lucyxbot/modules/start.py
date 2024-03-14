@@ -29,7 +29,6 @@ def callback_query_handler(client, query):
         ghelp_text = (
              " <b>Pᴏᴡᴇʀs Oғ </b><a href='https://t.me/lucy666xbot'>➳❥ɪᴹ᭄𝑳𝒖𝒄𝒚 𝒙 𝒃𝒐𝒕 🫧</a> "
         )
-        
         buttons = [
             [
                 InlineKeyboardButton("Close 🔐", callback_data="close")
