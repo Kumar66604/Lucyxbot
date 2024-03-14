@@ -25,13 +25,6 @@ async def start(_, msg):
         reply_markup=reply_markup
     )
 
-@app.on_message(filters.command("start") & filters.incoming)
-async def start(_, msg):
-    buttons = [[
-        InlineKeyboardButton('🥀 Sᴜᴘᴘᴏʀᴛ 🥀', url='https://t.me/{SUPPORT_GROUP}'),
-        InlineKeyboardButton('🥀 Uᴘᴅᴀᴛᴇs 🥀', url='https://t.me/{UPDATE_CHANNEL}')
-    ]]
-
 @app.on_message(filters.command(["help"]) & filters.group)
 async def help_command(client, message):
     start_button_link = f"https://t.me/{BOT_USERNAME}?start=your_start_parameter"
