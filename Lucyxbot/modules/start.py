@@ -32,7 +32,7 @@ def callback_query_handler(client, query):
         buttons = [
             [
                 InlineKeyboardButton("⟲ ʙᴀᴄᴋ ⟳", callback_data="home_"),
-                InlineKeyboardButton("Close 🔐", callback_data="close_data")
+                InlineKeyboardButton("⟳ ᴄʟᴏsᴇ ⟳", callback_data="close_data")
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
