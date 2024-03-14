@@ -31,7 +31,7 @@ async def callback_query_handler(client, query):
         )
         buttons = [
             [
-                 InlineKeyboardButton("⟲ ᴄʟᴏꜱᴇ ⟳", callback_data="close_data"))
+                 InlineKeyboardButton("⟲ ᴄʟᴏꜱᴇ ⟳", callback_data="close_data")
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
