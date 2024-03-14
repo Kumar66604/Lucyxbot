@@ -39,7 +39,7 @@ async def callback_query_handler(client, query):
 
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\#
 
-elif query.data=="close_data":
+    if query.data=="close_data":
         try:
             await query.msg.delete()
             await query.msg.reply_to_message.delete()
