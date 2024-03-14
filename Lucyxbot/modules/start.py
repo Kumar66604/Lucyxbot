@@ -4,6 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from pyrogram.types import InputMediaVideo
 from Lucyxbot import app
 from config import PIC, BOT_USERNAME, VIDEO
+from pyrogram.types import Message
 
 @app.on_message(filters.command("start"))
 async def start(_, msg):
