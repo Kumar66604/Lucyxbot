@@ -37,18 +37,7 @@ def callback_query_handler(client, query):
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
 
 
-@app.on_callback_query()
-async def cb_handler(client: app, query: CallbackQuery):
-    data = query.data
-    if data == "about":
-        buttons = [[
-            InlineKeyboardButton("🔒 Close", callback_data = "close")
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(ghelp_text, reply_markup=reply_markup)
-    elif data == "close":
-        await query.message.delete()
-        try:
-            await query.message.reply_to_message.delete()
-        except:
-            pass
+@app.on_callback_query(filters.regex("^close"))
+async def closeh(_, query):
+  chat_id = query.chat.id
+  await query.message.delete()
