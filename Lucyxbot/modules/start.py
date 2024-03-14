@@ -24,30 +24,20 @@ async def start(_, msg):
     )
 
 @app.on_callback_query()
-async def callback_query_handler(client, query):
+def callback_query_handler(client, query):
     if query.data == 'commands':
         ghelp_text = (
              " <b>Pᴏᴡᴇʀs Oғ </b><a href='https://t.me/lucy666xbot'>➳❥ɪᴹ᭄𝑳𝒖𝒄𝒚 𝒙 𝒃𝒐𝒕 🫧</a> "
         )
         buttons = [
             [
-                 InlineKeyboardButton("⟲ ᴄʟᴏꜱᴇ ⟳", callback_data="close_data")
+                InlineKeyboardButton("Close 🔐", callback_data="close")
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-
-        
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
         
-#----------------------------------------------------------------------------------------------
 
-#--------------------------------------------------
-
-    if query.data=="close_data":
-        try:
-            await query.msg.delete()
-            await query.msg.reply_to_message.delete()
-        except:
-            pass
-        
-
-
+@app.on_callback_query(filters.regex("close"))
+async def closeh(_, query):
+  chat_id = query.chat.id
+  await query.message.delete()
