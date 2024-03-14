@@ -32,7 +32,7 @@ def callback_query_handler(client, query):
         buttons = [
             [
                 InlineKeyboardButton("⟲ ʙᴀᴄᴋ ⟳", callback_data="home_"),
-                InlineKeyboardButton("⟳ ᴄʟᴏsᴇ ⟳", callback_data="close_data")
+                InlineKeyboardButton("⟳ ᴄʟᴏsᴇ ⟳", callback_data="close")
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
@@ -61,9 +61,9 @@ async def cb_handler(client, query):
         except MessageNotModified:
             pass
     
-    elif query.data=="close_data":
-        try:
-            await query.msg.delete()
-            await query.msg.reply_to_message.delete()
-        except:
-            pass
+@app.on_callback_query()
+async def on_callback_query(client, query):
+    if query.data == "close":
+        await query.msg.delete()
+        await query.msg.reply_text(
+           "Bye !")
