@@ -31,7 +31,7 @@ def callback_query_handler(client, query):
         )
         buttons = [
             [
-                InlineKeyboardButton("⟲ ʙᴀᴄᴋ ⟳", callback_data="home_")
+                InlineKeyboardButton("⟲ ʙᴀᴄᴋ ⟳", callback_data="home_"),
                 InlineKeyboardButton("Close 🔐", callback_data="close_data")
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
