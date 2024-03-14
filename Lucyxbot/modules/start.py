@@ -36,7 +36,7 @@ async def callback_query_handler(client, query):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(ghelp_text, reply_markup=reply_markup)
     elif query.data == "source":
-        await callback_query.edit_message_media(
+        await query.edit_message_media(
         media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
