@@ -62,8 +62,14 @@ async def cb_handler(client, query):
             pass
     
 @app.on_callback_query()
-async def on_callback_query(client, query):
-    if query.data == "close":
-        await query.msg.delete()
-        await query.msg.reply_text(
-           "Bye !")
+def button_click(client, callback_query):
+    # Get the callback data to determine which button was clicked
+    callback_data = callback_query.data
+
+    # Handle close button
+    if callback_data == "close":
+        # Delete the message with the close button
+        client.delete_messages(
+            chat_id=callback_query.message.chat.id,
+            message_ids=callback_query.message.message_id
+        )
