@@ -1,8 +1,9 @@
 import random
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.types import InputMediaVideo
 from Lucyxbot import app
-from config import PIC, BOT_USERNAME
+from config import PIC, BOT_USERNAME, VIDEO
 
 @app.on_message(filters.command("start"))
 async def start(_, msg):
@@ -37,7 +38,7 @@ async def callback_query_handler(client, query):
         await query.message.edit_text(ghelp_text, reply_markup=reply_markup)
     elif query.data == "source":
         await query.edit_message_media(
-        media=InputMediaVideo("https://graph.org/file/8926caeb4948c47b12080.mp4", has_spoiler=True),
+        media=InputMediaVideo(VIDEO, has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="home")]
