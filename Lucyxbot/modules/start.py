@@ -6,7 +6,7 @@ from Lucyxbot import app
 from config import PIC, BOT_USERNAME, VIDEO, SUPPORT_GROUP, UPDATE_CHANNEL
 
 
-@app.on_message(filters.command("start") & ~filters.group)
+@app.on_message(filters.command("start"))
 async def start(_, msg):
     buttons = [[
             InlineKeyboardButton('🥀 Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘs 🥀', url=f'https://t.me/{BOT_USERNAME}?startgroup=true')
