@@ -42,7 +42,7 @@ async def callback_query_handler(client, query):
             InlineKeyboardButton('✨ Sᴏᴜʀᴄᴇ ✨', callback_data="source")
     ]]
         reply_markup1 = InlineKeyboardMarkup(buttons1)
-        await query.message.edit_media(media=random.choice(PIC), caption=ghelp_text1, reply_markup=reply_markup1)
+        await query.message.edit_media(media=random.choice(PIC))
         await query.message.edit_caption(caption=ghelp_text1, reply_markup=reply_markup1)
     elif query.data == 'commands':
         ghelp_text = (
