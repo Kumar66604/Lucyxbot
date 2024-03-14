@@ -41,7 +41,7 @@ async def callback_query_handler(client, query):
             InlineKeyboardButton('✨ Sᴏᴜʀᴄᴇ ✨', callback_data="source")
     ]]
         reply_markup1 = InlineKeyboardMarkup(buttons1)
-        await query.message.edit_text(ghelp_text1.format(msg.from_user.mention), reply_markup=reply_markup1)
+        await query.message.edit_text(ghelp_text1.format(message.from_user.mention), reply_markup=reply_markup1)
     elif query.data == 'commands':
         ghelp_text = (
              " <b>Pᴏᴡᴇʀs Oғ </b><a href='https://t.me/lucy666xbot'>➳❥ɪᴹ᭄𝑳𝒖𝒄𝒚 𝒙 𝒃𝒐𝒕 🫧</a> "
