@@ -38,7 +38,7 @@ def callback_query_handler(client, query):
 
 
 @app.on_callback_query()
-async def cb_handler(client: Bot, query: CallbackQuery):
+async def cb_handler(client: app, query: CallbackQuery):
     data = query.data
     if data == "about":
         buttons = [[
