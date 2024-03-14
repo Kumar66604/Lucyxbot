@@ -36,6 +36,9 @@ async def callback_query_handler(client, query):
         reply_markup = InlineKeyboardMarkup(buttons)
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
 
+
+#\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\#
+
 elif query.data=="close_data":
         try:
             await query.msg.delete()
