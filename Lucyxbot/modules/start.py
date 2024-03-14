@@ -6,7 +6,7 @@ from Lucyxbot import app
 from config import PIC, BOT_USERNAME, VIDEO
 
 
-@app.on_message(filters.command("start"))
+@app.on_message(filters.command("start") & ~filters.group)
 async def start(_, msg):
     buttons = [[
             InlineKeyboardButton('🥀 Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘs 🥀', url=f'https://t.me/{BOT_USERNAME}?startgroup=true')
@@ -25,6 +25,18 @@ async def start(_, msg):
         reply_markup=reply_markup
     )
 
+@app.on_message(filters.command(["help"]) & filters.group)
+async def help_command(client, message):
+    start_button_link = f"https://t.me/{BOT_USERNAME}?start=your_start_parameter"
+    caption = "⟳ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴍʏ ʜᴇʟᴘ ᴍᴇɴᴜ ɪɴ ʏᴏᴜʀ ᴘᴍ "
+
+    keyboard = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton("⟳ ʜᴇʟᴘ ⟳", url=start_button_link)],
+        ]
+    )
+
+    await message.reply_text(caption, reply_markup=keyboard)
 @app.on_callback_query()
 async def callback_query_handler(client, query):
     if query.data == 'home':
@@ -58,7 +70,7 @@ async def callback_query_handler(client, query):
         media=InputMediaVideo(VIDEO, has_spoiler=True),
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton(text="๏ ʙᴀᴄᴋ ๏", callback_data="close")]
+                [InlineKeyboardButton(text="⟳ ʙᴀᴄᴋ ⟳", callback_data="close")]
             ]
         ),
         )
