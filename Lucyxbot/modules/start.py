@@ -43,7 +43,7 @@ async def callback_query_handler(client, query):
     ]]
         reply_markup1 = InlineKeyboardMarkup(buttons1)
         await query.message.edit_media(media=random.choice(PIC))
-        await query.message.edit_caption(caption=ghelp_text1, reply_markup=reply_markup1)
+        await query.message.edit_text(ghelp_text1, reply_markup=reply_markup1)
     elif query.data == 'commands':
         ghelp_text = (
              " <b>Pᴏᴡᴇʀs Oғ </b><a href='https://t.me/lucy666xbot'>➳❥ɪᴹ᭄𝑳𝒖𝒄𝒚 𝒙 𝒃𝒐𝒕 🫧</a> "
