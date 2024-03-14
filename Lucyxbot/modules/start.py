@@ -29,11 +29,10 @@ def callback_query_handler(client, query):
         ghelp_text = (
              " <b>Pᴏᴡᴇʀs Oғ </b><a href='https://t.me/lucy666xbot'>➳❥ɪᴹ᭄𝑳𝒖𝒄𝒚 𝒙 𝒃𝒐𝒕 🫧</a> "
         )
-        buttons = [
-            [
-                InlineKeyboardButton("⟲ ʙᴀᴄᴋ ⟳", callback_data="home_"),
-                InlineKeyboardButton("⟳ ᴄʟᴏsᴇ ⟳", callback_data="close")
-            ]]
+        buttons = [[
+            InlineKeyboardButton("⟲ ʙᴀᴄᴋ ⟳", callback_data="home_"),
+            InlineKeyboardButton("⟳ ᴄʟᴏsᴇ ⟳", callback_data="close")
+        ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         query.message.edit_text(ghelp_text, reply_markup=reply_markup)
 
