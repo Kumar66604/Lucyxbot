@@ -46,8 +46,8 @@ async def callback_query_handler(client, query):
         buttons1 = [[
             InlineKeyboardButton('🥀 Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘs 🥀', url=f'https://t.me/{BOT_USERNAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🥀 Sᴜᴘᴘᴏʀᴛ 🥀', url=f'https://t.me/vkmovies02'),
-            InlineKeyboardButton('🥀 Uᴘᴅᴀᴛᴇs 🥀', url=f'https://t.me/vkmovies2')
+            InlineKeyboardButton('🥀 Sᴜᴘᴘᴏʀᴛ 🥀', url=f'https://t.me/{SUPPORT_GROUP}'),
+            InlineKeyboardButton('🥀 Uᴘᴅᴀᴛᴇs 🥀', url=f'https://t.me/{UPDATE_CHANNEL}')
     ],[
             InlineKeyboardButton('✨ Cᴏᴍᴍᴀɴᴅs ✨', callback_data="commands")
     ],[
