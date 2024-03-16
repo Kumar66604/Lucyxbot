@@ -10,11 +10,11 @@ from io import BytesIO
 import re
 
             
-@app.on_message(filters.regex(r'\b(?:pin\.it|pinterest\.com)\b') & (filters.group | filters.private))
+@app.on_message(filters.regex(r'\\b(?:pin\\.it|pinterest\\.com)\\b') & (filters.group | filters.private))
 async def pin_download(_, message):
     await scrap_pins(message)
     
-snap_pattern = "(?:https\:\/\/t.snapchat.com\/\S\S\S\S\S\S\S\S)"            
+snap_pattern = "(?:https\\:\\/\\/t.snapchat.com\\/\\S\\S\\S\\S\\S\\S\\S\\S)"            
 async def scrap_snaps(message):
     text = re.findall(snap_pattern, message.text)
     async with cs() as sess:
@@ -29,7 +29,7 @@ async def scrap_snaps(message):
         await msg.delete()
         await message.reply_video(video, caption=f"Uploaded By [{app.me.first_name}](https://t.me/{app.me.username})", thumb=thumb, parse_mode=enums.ParseMode.MARKDOWN)
            
-@app.on_message(filters.regex("(?:https\:\/\/t.snapchat.com\/\S\S\S\S\S\S\S\S)") & (filters.group | filters.private))
+@app.on_message(filters.regex("(?:https\\:\\/\\/t.snapchat.com\\/\\S\\S\\S\\S\\S\\S\\S\\S)") & (filters.group | filters.private))
 async def snap_download(_, message):
     await scrap_snaps(message)
 
@@ -44,7 +44,7 @@ async def download_ig(query):
  response = requests.post(url, json=payload, headers=headers)
  return response.json()['data']
 
-@app.on_message(filters.regex(r'https://www\.instagram\.com/reel/.*') & (filters.group | filters.private))
+@app.on_message(filters.regex(r'https:\\/\\/www\\.instagram\\.com\\/reel\\/.*') & (filters.group | filters.private))
 async def insta(client, message):
                chat_id = message.chat.id
                query = message.text
