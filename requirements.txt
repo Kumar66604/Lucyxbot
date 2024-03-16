@@ -1,4 +1,5 @@
 pyrogram==2.0.106
 requests
+openai==0.28.0
 beautifulsoup4
 aiohttp
