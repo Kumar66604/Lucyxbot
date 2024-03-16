@@ -1,3 +1,4 @@
+import openai
 import random
 import time
 import requests
@@ -74,7 +75,7 @@ async def bing_search(michiko, message):
             message.command[1:]
         )  # Assuming the keyword is passed as arguments
         params = {"keyword": keyword}
-        response = r.get(API_URL, params=params)
+        response = requests.get(API_URL, params=params)
 
         if response.status_code == 200:
             results = response.json()
