@@ -4,9 +4,10 @@ import time
 import requests
 from Lucyxbot import app
 from config import BOT_USERNAME
-
 from pyrogram.enums import ChatAction, ParseMode
 from pyrogram import filters
+
+API_URL = "https://sugoi-api.vercel.app/search"
 
 @app.on_message(filters.command(["ucy","chatgpt","ai","ask","gpt","solve"],  prefixes=["L","+", ".", "/", "-", "", "$","#","&"]))
 async def chat_gpt(bot, message):
