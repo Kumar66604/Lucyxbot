@@ -7,7 +7,12 @@ from Lucyxbot import app
 @app.on_message(filters.command("insta"))
 async def download_instagram_post(client, message):
     # Extract the URL of the Instagram post from the message
-    url = message.text.split(" ", 1)[1]
+    if len(message.command) < 2:
+            await message.reply_text(
+                "Example:/insta 'link of post you want to download'"
+            )
+    else:
+        url = message.text.split(" ", 1)[1]
 
     # Pretend to download the Instagram post using requests module
     response = requests.get(url)
