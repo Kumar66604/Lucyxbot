@@ -1,9 +1,7 @@
 from pyrogram import Client, filters
 from io import BytesIO
 import requests
-
-# Initialize your Pyrogram Client
-app = Client("my_bot")
+from Lucyxbot import app
 
 # Define the RapidAPI endpoint URL
 RAPIDAPI_URL = "https://instagram310.p.rapidapi.com/post"
