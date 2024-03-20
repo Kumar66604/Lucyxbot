@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 from io import BytesIO
 import requests
 from Lucyxbot import app
+from config import RAPID_APIKEY
 
 # Define the RapidAPI endpoint URL
 RAPIDAPI_URL = "https://instagram310.p.rapidapi.com/post"
@@ -9,7 +10,7 @@ RAPIDAPI_URL = "https://instagram310.p.rapidapi.com/post"
 # Function to download and send video from Instagram using RapidAPI
 async def download_instagram_video(message, url):
     headers = {
-        "X-RapidAPI-Key": "dc941af14dmsh6bc574712f93787p1be962jsn87965c569abb",  # Replace with your RapidAPI key
+        "X-RapidAPI-Key": "RAPID_APIKEY",  # Replace with your RapidAPI key
         "X-RapidAPI-Host": "instagram310.p.rapidapi.com"
     }
     params = {"url": url}
