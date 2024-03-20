@@ -34,7 +34,7 @@ async def download_instagram_video(message, url):
         await message.reply(f"Error downloading video: {e}")
 
 # Define a command handler to trigger the video download
-@app.on_message(filters.command("/ig"))
+@app.on_message(filters.command("ig"))
 async def trigger_video_download(client, message):
     try:
         # Extract the Instagram post URL from the command
