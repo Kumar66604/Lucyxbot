@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 import requests
 import os
+from Lucyxbot import app
 
 # Define the RapidAPI endpoint URL
 RAPIDAPI_URL = "https://instagram310.p.rapidapi.com/post"
