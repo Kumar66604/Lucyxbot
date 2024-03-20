@@ -26,6 +26,10 @@
     "BOT_USERNAME": {
       "description": "Your Bot usernames without @",
       "required": true
+    },
+    "RAPID_APIKEY": {
+      "description": "Your RAPID_APIKEY",
+      "required": true
     }
   },
   "buildpacks": [
