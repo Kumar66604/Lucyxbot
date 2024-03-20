@@ -1,13 +1,15 @@
 from pyrogram import Client, filters
+from io import BytesIO
 import requests
-import os
-from Lucyxbot import app
+
+# Initialize your Pyrogram Client
+app = Client("my_bot")
 
 # Define the RapidAPI endpoint URL
 RAPIDAPI_URL = "https://instagram310.p.rapidapi.com/post"
 
-# Function to download media from Instagram using RapidAPI
-async def download_instagram_media(message, url):
+# Function to download and send video from Instagram using RapidAPI
+async def download_instagram_video(message, url):
     headers = {
         "X-RapidAPI-Key": "dc941af14dmsh6bc574712f93787p1be962jsn87965c569abb",  # Replace with your RapidAPI key
         "X-RapidAPI-Host": "instagram310.p.rapidapi.com"
@@ -18,33 +20,33 @@ async def download_instagram_media(message, url):
         response = requests.get(RAPIDAPI_URL, headers=headers, params=params)
         response.raise_for_status()  # Raise an exception for HTTP errors
         
-        # Assuming the response contains the media file
-        media_content = response.content
+        # Get the video URL from the response JSON
+        video_url = response.json()['data'][0]['download']
         
-        # Save the media content to a file
-        file_name = f"instagram_media.{response.headers['Content-Type'].split('/')[-1]}"
-        with open(file_name, "wb") as file:
-            file.write(media_content)
+        # Download the video content
+        video_content = BytesIO(requests.get(video_url).content)
         
-        # Send the media file to the user
-        await message.reply_document(file_name)
+        # Set the file name to your app username
+        video_content.name = f"{app.me.username}.mp4"
         
-        # Clean up: Delete the downloaded file
-        os.remove(file_name)
+        # Send the video to the user
+        await message.reply_video(video=video_content)
         
     except requests.exceptions.RequestException as e:
-        await message.reply(f"Error downloading media: {e}")
+        await message.reply(f"Error downloading video: {e}")
 
-# Define a command handler to trigger the media download
-@app.on_message(filters.command("insta"))
-async def trigger_download(client, message):
+# Define a command handler to trigger the video download
+@app.on_message(filters.command("/ig"))
+async def trigger_video_download(client, message):
     try:
         # Extract the Instagram post URL from the command
         url = message.text.split(" ", 1)[1]
         
-        # Call the function to download and send the media
-        await download_instagram_media(message, url)
+        # Call the function to download and send the video
+        await download_instagram_video(message, url)
         
     except IndexError:
         await message.reply("Please provide the URL of the Instagram post.")
 
+# Run the Pyrogram client
+app.run()
