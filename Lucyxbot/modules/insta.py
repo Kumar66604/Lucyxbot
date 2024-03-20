@@ -10,7 +10,7 @@ RAPIDAPI_URL = "https://instagram310.p.rapidapi.com/post"
 # Function to download and send video from Instagram using RapidAPI
 async def download_instagram_video(message, url):
     headers = {
-        "X-RapidAPI-Key": "RAPID_APIKEY",  # Replace with your RapidAPI key
+        "X-RapidAPI-Key": RAPID_APIKEY,  # Replace with your RapidAPI key
         "X-RapidAPI-Host": "instagram310.p.rapidapi.com"
     }
     params = {"url": url}
