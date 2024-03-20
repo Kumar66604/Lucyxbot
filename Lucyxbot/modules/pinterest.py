@@ -9,12 +9,12 @@ RAPIDAPI_URL = "https://pinterest-downloader-download-pinterest-image-video-and-
 
 # Function to download and send video from Instagram using RapidAPI
 async def download_instagram_video(message, url):
-headers = {
- "X-RapidAPI-Key": RAPID_APIKEY,
- "X-RapidAPI-Host": "pinterest-downloader-download-pinterest-image-video-and-reels.p.rapidapi.com"
-}
-
-    params = {"url": url}
+ headers = {
+  "X-RapidAPI-Key": RAPID_APIKEY,
+  "X-RapidAPI-Host": "pinterest-downloader-download-pinterest-image-video-and-reels.p.rapidapi.com"
+ }
+ 
+ params = {"url": url}
     
     try:
         response = requests.get(RAPIDAPI_URL, headers=headers, params=params)
