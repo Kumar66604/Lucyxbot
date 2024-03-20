@@ -1,6 +1,8 @@
 from pyrogram import Client, filters
 import requests
 import os
+import mimetypes
+from urllib.parse import urlparse
 from Lucyxbot import app
 
 # Define a function to handle incoming messages
@@ -18,16 +20,16 @@ async def download_instagram_post(client, message):
 
     if response.status_code == 200:
         # Extracting the file extension from the URL
-        file_extension = url.split(".")[-1]
-        
-        # Save the downloaded content to a temporary file
-        with open(f"temp_instagram_post.{file_extension}", "wb") as f:
-            f.write(response.content)
-        
-        # Send the saved file as a document to the user
-        await message.reply_document(f"temp_instagram_post.{file_extension}", caption="Here's your Instagram post!")
+        parsed_url = urlparse(url)
+        file_extension = os.path.splitext(parsed_url.path)[1]
 
-        # Delete the temporary file
-        os.remove(f"temp_instagram_post.{file_extension}")
+        # Check if the Instagram post is a video
+        if "video" in response.headers.get("content-type", ""):
+            # It's a video, send it as a video
+            await message.reply_video(url)
+        else:
+            # It's an image, send it as a photo
+            await message.reply_photo(url)
     else:
         await message.reply("Failed to download the Instagram post. Please check the URL.")
+            
