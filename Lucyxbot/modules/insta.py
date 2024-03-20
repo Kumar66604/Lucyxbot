@@ -17,14 +17,17 @@ async def download_instagram_post(client, message):
     response = requests.get(url)
 
     if response.status_code == 200:
+        # Extracting the file extension from the URL
+        file_extension = url.split(".")[-1]
+        
         # Save the downloaded content to a temporary file
-        with open("temp_instagram_post.mp4", "wb") as f:
+        with open(f"temp_instagram_post.{file_extension}", "wb") as f:
             f.write(response.content)
         
         # Send the saved file as a document to the user
-        await message.reply_document("temp_instagram_post.mp4", caption="Here's your Instagram post!")
+        await message.reply_document(f"temp_instagram_post.{file_extension}", caption="Here's your Instagram post!")
 
         # Delete the temporary file
-        os.remove("temp_instagram_post.jpg")
+        os.remove(f"temp_instagram_post.{file_extension}")
     else:
         await message.reply("Failed to download the Instagram post. Please check the URL.")
