@@ -46,5 +46,3 @@ async def trigger_video_download(client, message):
     except IndexError:
         await message.reply("Please provide the URL of the Instagram post.")
 
-# Run the Pyrogram client
-app.run()
