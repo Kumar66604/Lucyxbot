@@ -18,11 +18,11 @@ async def download_instagram_post(client, message):
 
     if response.status_code == 200:
         # Save the downloaded content to a temporary file
-        with open("temp_instagram_post.jpg", "wb") as f:
+        with open("temp_instagram_post.mp4", "wb") as f:
             f.write(response.content)
         
         # Send the saved file as a document to the user
-        await message.reply_document("temp_instagram_post.jpg", caption="Here's your Instagram post!")
+        await message.reply_document("temp_instagram_post.mp4", caption="Here's your Instagram post!")
 
         # Delete the temporary file
         os.remove("temp_instagram_post.jpg")
