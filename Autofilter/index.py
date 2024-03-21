@@ -1,3 +1,4 @@
+from Lucyxbot import app
 import logging
 import asyncio
 from pyrogram import Client, filters
@@ -10,7 +11,7 @@ logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
 
 
-@Client.on_message(filters.command(['index', 'indexfiles']) & filters.user(ADMINS))
+@app.on_message(filters.command(['index', 'indexfiles']) & filters.user(ADMINS))
 async def index_files(bot, message):
     """Save channel or group files"""
     if lock.locked():
