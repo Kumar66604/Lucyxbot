@@ -30,6 +30,39 @@
     "RAPID_APIKEY": {
       "description": "Your RAPID_APIKEY",
       "required": true
+    },
+    "CHANNELS": {
+      "description": "Username or ID of channel or group. Separate multiple IDs by space.",
+      "required": true
+    },
+    "ADMINS": {
+      "description": "Username or ID of Admin. Separate multiple Admins by space.",
+      "required": true
+    },
+    "AUTH_USERS": {
+      "description": "Username or ID of users to give access of inline search. Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
+      "required": true
+    },
+    "AUTH_CHANNEL": {
+      "description": "ID of channel.Make sure bot is admin in this channel. Without subscribing this channel users cannot use bot.",
+      "required": true
+    },
+    "AUTH_GROUPS": {
+      "description": "ID of groups which bot should work as autofilter, bot can only work in thease groups. If not given , bot can be used in any group.",
+      "required": false
+    },
+    "DATABASE_URI": {
+      "description": "mongoDB URI. Get this value from https://www.mongodb.com. For more help watch this video - https://youtu.be/dsuTn4qV2GA",
+      "value": ""
+    },
+    "DATABASE_NAME": {
+      "description": "Name of the database in mongoDB. For more help watch this video - https://youtu.be/dsuTn4qV2GA",
+      "value": ""
+    },
+    "COLLECTION_NAME": {
+      "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use different collection name for each bot",
+      "value": "Telegram_files",
+      "required": false
     }
   },
   "buildpacks": [
