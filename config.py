@@ -1,5 +1,8 @@
 from os import getenv
+import re
 from os import environ
+
+id_pattern = re.compile(r'^.\d+$')
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
