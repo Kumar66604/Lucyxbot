@@ -3,7 +3,7 @@ from pyrogram import filters, Client, errors, enums
 from pyrogram.errors import UserNotParticipant
 from pyrogram.errors.exceptions.flood_420 import FloodWait
 from mongodb import add_user, add_group
-from config import 
+from config import PIC
 import random, asyncio
 from Lucyxbot import app 
 
@@ -14,7 +14,7 @@ async def approve(_, m : Message):
     try:
         add_group(m.chat.id)
         await app.approve_chat_join_request(op.id, kk.id)
-        img = random.choice()
+        img = random.choice(PIC)
         await app.send_video(kk.id,img, "**Hello {}!\nWelcome To {}\n\n__Powerd By : Lucy with 💕".format(m.from_user.mention, m.chat.title))
         add_user(kk.id)
     except errors.PeerIdInvalid as e:
