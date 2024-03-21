@@ -1,4 +1,5 @@
 from os import getenv
+from os import environ
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
