@@ -21,23 +21,30 @@ async def download_pinterest_video(message, url):
         
         # Check if the response is in JSON format
         if api_response.headers.get('content-type') == 'application/json':
-            # Get the video URL from the response JSON
-            video_url = api_response.json().get('data', [])[0].get('download')
+            # Get the data from the response JSON
+            data = api_response.json().get('data', [])
             
-            if video_url:
-                # Download the video content
-                video_content = BytesIO(requests.get(video_url).content)
-                video_content.name = f"{app.me.username}.mp4"
+            if data:
+                # Get the video URL from the first item in the data list
+                video_url = data[0].get('download')
                 
-                # Send the video to the user
-                await message.reply_video(video=video_content)
+                if video_url:
+                    # Download the video content
+                    video_content = BytesIO(requests.get(video_url).content)
+                    video_content.name = f"{app.me.username}.mp4"
+                    
+                    # Send the video to the user
+                    await message.reply_video(video=video_content)
+                else:
+                    await message.reply("No video found in the response.")
             else:
-                await message.reply("No video found in the response.")
+                await message.reply("No data found in the response.")
         else:
             await message.reply("Invalid response format from the RapidAPI endpoint.")
         
     except requests.exceptions.RequestException as e:
         await message.reply(f"Error downloading video: {e}")
+        
 
 # Define a command handler to trigger the video download
 @app.on_message(filters.command("pn"))
